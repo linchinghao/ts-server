@@ -12,14 +12,19 @@ export default (appInfo: EggAppConfig) => {
   const config = {} as PowerPartial<EggAppConfig> & BizConfig;
 
   // app special config
-  config.sourceUrl = `https://github.com/eggjs/examples/tree/master/${appInfo.name}`;
+  // config.sourceUrl = `https://github.com/eggjs/examples/tree/master/${appInfo.name}`;
 
   // override config from framework / plugin
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1524105573066_5877';
 
-  // add your config here
-  config.middleware = [];
+  // 配置中间件
+  config.middleware = ['logger', 'errorHandler'];
+
+  // onerror
+  config.onerror = {
+    // 统一异常处理
+  };
 
   return config;
 };
