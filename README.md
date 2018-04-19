@@ -47,3 +47,9 @@ $ npm start
 - [ ] 小程序管理 
 - [ ] 一键部署  
 
+## 默认中间件
+bodyParser 对post请求的请求体进行解析
+meta
+notfound
+override_method
+site_file
