@@ -19,11 +19,17 @@ export default (appInfo: EggAppConfig) => {
   config.keys = appInfo.name + '_1524105573066_5877';
 
   // 配置中间件
-  config.middleware = ['logger', 'errorHandler'];
+  config.middleware = ['logger'];
 
   // onerror
   config.onerror = {
     // 统一异常处理
+  };
+
+  // mongo设置
+  config.mongoose = {
+    url: 'mongodb://127.0.0.1/wpt-demo',
+    options: {},
   };
 
   return config;

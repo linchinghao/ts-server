@@ -7,7 +7,8 @@ export default class HomeController extends Controller {
   }
 
   public async test() {
-    await this.ctx.service.test.sayHi('asdf');
+    const { ctx } = this;
+    ctx.body = await this.ctx.service.test.sayHi('asdf');
   }
 
   public async create() {
