@@ -18,8 +18,27 @@ export default (appInfo: EggAppConfig) => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1524105573066_5877';
 
+  config.view =  {
+    defaultViewEngine: 'nunjucks',
+  };
+
   // 配置中间件
   config.middleware = ['logger'];
+
+  // config.assets = {
+  //   publicPath: '/public',
+  //   devServer: {
+  //     command: 'roadhog dev',
+  //     port: 8000,
+  //     env: {
+  //       BROWSER: 'none',
+  //       DISABLE_ESLINT: true,
+  //       SOCKET_SERVER: 'http://127.0.0.1:8000',
+  //       PUBLIC_PATH: 'http://127.0.0.1:8000',
+  //     },
+  //     debug: true,
+  //   },
+  // };
 
   // onerror
   config.onerror = {
@@ -37,7 +56,7 @@ export default (appInfo: EggAppConfig) => {
     init: { }, // passed to engine.io
     namespace: {
       '/': {
-        connectionMiddleware: [],
+        connectionMiddleware: ['auth'],
         packetMiddleware: [],
       },
     },

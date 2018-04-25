@@ -2,10 +2,10 @@ import { EggPlugin } from 'egg';
 
 const plugin: EggPlugin = {
   // static: true,
-  // nunjucks: {
-  //   enable: true,
-  //   package: 'egg-view-nunjucks',
-  // },
+  nunjucks: {
+    enable: true,
+    package: 'egg-view-nunjucks',
+  },
   mongoose: {
     enable: true,
     package: 'egg-mongoose',
@@ -18,6 +18,10 @@ const plugin: EggPlugin = {
     enable: true,
     package: 'egg-redis',
   },
+  // assets: {
+  //   enable: true,
+  //   package: 'egg-view-assets',
+  // },
 };
 
 export default plugin;

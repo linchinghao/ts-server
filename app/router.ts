@@ -11,4 +11,8 @@ export default (app: Application) => {
 
   router.get('/user/:id', user.index);
 
+  // socket.io
+  app.io.of('/').route('home', app.io.controller.home.server);
+  app.io.route('message', app.io.controller.message.index);
+
 };
