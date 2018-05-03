@@ -34,35 +34,35 @@ $ npm start
 ## TODO
 
 - [x] 路由管理  koa-router
-- [ ] 鉴权 jwt token  
+- [x] 鉴权
 - [ ] 权限管理  
 - [x] 数据库  mongoose
 - [x] 统一错误处理  onerror插件
 - [x] 缓存管理  redis
 - [x] 消息服务/网关  socket
 - [x] 配置管理  config
-- [ ] 单元测试  
+- [x] 单元测试  
 - [x] 安全 
 - [ ] 小程序管理  
-- [ ] 一键部署  
+- [x] 一键部署  
 
 ## 默认中间件
-`bodyParser` 对post请求的请求体进行解析
-`meta` 请求元数据
-`notfound` 404支持
-`koa-override` 支持Put/Delete等动词的请求
-`site_file` HTTP缓存
+`bodyParser` 对post请求的请求体进行解析  
+`meta` 请求元数据  
+`notfound` 404支持  
+`koa-override` 支持Put/Delete等动词的请求  
+`site_file` HTTP缓存  
 
 ## 默认开启中间件
-onerror 统一异常处理
-Session Session 实现
-i18n 多语言
-watcher 文件和文件夹监控
-multipart 文件流式上传
-security 安全
-development 开发环境配置
-logrotator 日志切分
-schedule 定时任务
-static 静态服务器
-jsonp jsonp 支持
-view 模板引擎
+onerror 统一异常处理  
+Session Session 实现  
+i18n 多语言  
+watcher 文件和文件夹监控  
+multipart 文件流式上传  
+security 安全  
+development 开发环境配置  
+logrotator 日志切分  
+schedule 定时任务  
+static 静态服务器  
+jsonp jsonp 支持  
+view 模板引擎  
