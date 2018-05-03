@@ -1,12 +1,17 @@
 import { Application, Context } from 'egg';
 import { Strategy as LocalStrategy } from 'passport-local';
 
+// TODO: 身份登录状态维持
 export default (app: Application) => {
-  // 账号密码鉴权
+
+  const middleware = app.middleware as any;
+  const auth = middleware.auth();
+  console.log(auth);
+  // 使用passport-local策略
   app.passport.use(new LocalStrategy({
     passReqToCallback: true,
   }, (req, username, password, done) => {
-    console.log('auth', username);
+
     const user = {
       provider: 'local',
       username,
@@ -18,7 +23,7 @@ export default (app: Application) => {
 
   // 处理用户信息
   app.passport.verify(async (ctx: Context, user: any) => {
-    console.log('verify', user);
+    console.log('isAuthenticated', ctx.isAuthenticated());
     if (user.username === 'allin') {
       return user;
     }
@@ -36,10 +41,10 @@ export default (app: Application) => {
 
   router.get('/', home.index);
   router.get('/test', home.test);
-  router.get('/testSokcet', home.testSocket);
+  router.get('/testSocket', home.testSocket);
   router.post('/create', home.create);
 
-  router.get('/user/:id', user.index);
+  router.get('/user', auth, user.index);
 
   // 鉴权成功后的回调页面
   router.get('/authCallback', controller.home.authCallback);

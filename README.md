@@ -66,3 +66,21 @@ schedule 定时任务
 static 静态服务器  
 jsonp jsonp 支持  
 view 模板引擎  
+
+## Warning
+1. egg-socket.io  
+  `io/middleware`不能识别ts文件.相关issue[https://github.com/eggjs/egg/issues/2398](https://github.com/eggjs/egg/issues/2398)  
+  解决方法：  
+  ```js
+  /lib/loader.js
+  new app.loader.FileLoader({
+    directory: dirs,
+    target: app.io.middleware,
+    inject: app,
+    typescript: true // add
+  }).load();
+  ```
+
+2. 路由挂载中间件  
+  使用TS开发，在路由加载中间件，提示`Property 'middlewareName' does not exist on type 'Middleware<Context>[]`
+  见相关issue[https://github.com/eggjs/egg/issues/2358](https://github.com/eggjs/egg/issues/2358)

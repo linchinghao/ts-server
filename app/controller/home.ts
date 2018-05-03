@@ -27,7 +27,7 @@ export default class HomeController extends Controller {
 
   public authCallback() {
     const { ctx } = this;
-    ctx.redirect('/');
+    ctx.redirect(ctx.get('refer') || '/');
   }
 
   public login() {
