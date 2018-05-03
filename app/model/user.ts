@@ -5,8 +5,8 @@ module.exports = (app: Application) => {
   const Schema = mongoose.Schema;
 
   const userSchema = new Schema({
-    userName: { type: String  },
-    password: { type: String  },
+    userName: String,
+    password: String,
   });
 
   return mongoose.model('User', userSchema);

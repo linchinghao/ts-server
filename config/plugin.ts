@@ -1,7 +1,10 @@
 import { EggPlugin } from 'egg';
 
 const plugin: EggPlugin = {
-  // static: true,
+  passport: {
+    enable: true,
+    package: 'egg-passport',
+  },
   nunjucks: {
     enable: true,
     package: 'egg-view-nunjucks',

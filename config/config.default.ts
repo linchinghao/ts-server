@@ -75,5 +75,12 @@ export default (appInfo: EggAppConfig) => {
     },
   };
 
+  config.security = {
+    csrf: {
+      bodyName: '_csrf',
+      queryName: '_csrf',
+    },
+  };
+
   return config;
 };
