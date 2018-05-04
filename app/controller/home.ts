@@ -27,7 +27,7 @@ export default class HomeController extends Controller {
 
   public authCallback() {
     const { ctx } = this;
-    ctx.redirect(ctx.get('refer') || '/');
+    ctx.redirect('/');
   }
 
   public login() {
@@ -45,6 +45,12 @@ export default class HomeController extends Controller {
     } else if (ctx.method === 'POST') {
       ctx.body = ctx.request.body;
     }
+  }
+
+  public logout() {
+    const { ctx } = this;
+    ctx.logout();
+    ctx.redirect(ctx.get('referer') || '/');
   }
 
   public async testSocket() {

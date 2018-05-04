@@ -6,7 +6,6 @@ export default (app: Application) => {
 
   const middleware = app.middleware as any;
   const auth = middleware.auth();
-  console.log(auth);
   // 使用passport-local策略
   app.passport.use(new LocalStrategy({
     passReqToCallback: true,
@@ -23,16 +22,22 @@ export default (app: Application) => {
 
   // 处理用户信息
   app.passport.verify(async (ctx: Context, user: any) => {
-    console.log('isAuthenticated', ctx.isAuthenticated());
+    // 验证
     if (user.username === 'allin') {
       return user;
+    } else {
+      this.ctx.throw(401, '授权失败!');
     }
   });
+
+  // 将用户信息序列化后存进 session 里面，一般需要精简，只保存个别字段
   app.passport.serializeUser(async (ctx: Context, user: any) => {
-    console.log(user);
+    return user;
   });
+
+  // 反序列化后把用户信息从 session 中取出来，反查数据库拿到完整信息
   app.passport.deserializeUser(async (ctx: Context, user: any) => {
-    console.log(user);
+    return user;
   });
 
   const { controller, router } = app;
@@ -47,13 +52,15 @@ export default (app: Application) => {
   router.get('/user', auth, user.index);
 
   // 鉴权成功后的回调页面
-  router.get('/authCallback', controller.home.authCallback);
+  router.get('/authCallback', home.authCallback);
 
   // 渲染登录页面，用户输入账号密码
-  router.get('/login', controller.home.login);
+  router.get('/login', home.login);
 
   // 登录校验
   router.post('/login', app.passport.authenticate('local', { successRedirect: '/authCallback' }));
+
+  router.get('/logout', home.logout);
 
   // socket.io
   app.io.of('/').route('home', app.io.controller.home.server);
