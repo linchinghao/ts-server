@@ -30,30 +30,14 @@ $ npm start
 - Node.js 8.x
 - Typescript 2.8+
 
-
-## TODO
-
-- [x] 路由管理  koa-router
-- [x] 鉴权
-- [ ] 权限管理  
-- [x] 数据库  mongoose
-- [x] 统一错误处理  onerror插件
-- [x] 缓存管理  redis
-- [x] 消息服务/网关  socket
-- [x] 配置管理  config
-- [x] 单元测试  
-- [x] 安全 
-- [ ] 小程序管理  
-- [x] 一键部署  
-
-## 默认中间件
+## `Egg`内置中间件
 `bodyParser` 对post请求的请求体进行解析  
 `meta` 请求元数据  
 `notfound` 404支持  
 `koa-override` 支持Put/Delete等动词的请求  
 `site_file` HTTP缓存  
 
-## 默认开启中间件
+## `Egg`内置插件
 onerror 统一异常处理  
 Session Session 实现  
 i18n 多语言  
@@ -67,7 +51,7 @@ static 静态服务器
 jsonp jsonp 支持  
 view 模板引擎  
 
-## Warning
+## Egg与Typescript结合的问题
 1. egg-socket.io  
   `io/middleware`不能识别ts文件.相关issue[https://github.com/eggjs/egg/issues/2398](https://github.com/eggjs/egg/issues/2398)  
   解决方法：  
@@ -84,3 +68,18 @@ view 模板引擎
 2. 路由挂载中间件  
   使用TS开发，在路由加载中间件，提示`Property 'middlewareName' does not exist on type 'Middleware<Context>[]`
   见相关issue[https://github.com/eggjs/egg/issues/2358](https://github.com/eggjs/egg/issues/2358)
+
+
+## TODO
+
+- [x] 路由管理  koa-router
+- [x] 鉴权 jwt?cookie-session?
+- [ ] 权限管理  
+- [x] 数据库  mongoose
+- [x] 统一错误处理  onerror插件
+- [x] 缓存管理  redis
+- [x] 消息服务/网关  socket
+- [x] 配置管理  config
+- [x] 单元测试  
+- [x] 安全  
+- [x] 一键部署  
