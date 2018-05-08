@@ -29,6 +29,7 @@
     "egg-socket.io": "^4.0.8",
     "egg-view-assets": "^1.1.2",
     "egg-view-nunjucks": "^2.2.0",
+    "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
@@ -36,6 +37,7 @@
     "@types/mongoose": "^5.0.10",
     "@types/node": "^7.0.12",
     "@types/passport": "^0.4.5",
+    "@types/passport-jwt": "^3.0.1",
     "@types/passport-local": "^1.0.33",
     "@types/supertest": "^2.0.0",
     "autod": "^3.0.1",
