@@ -29,6 +29,7 @@
     "egg-socket.io": "^4.0.8",
     "egg-view-assets": "^1.1.2",
     "egg-view-nunjucks": "^2.2.0",
+    "jsonwebtoken": "^8.2.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0"
   },

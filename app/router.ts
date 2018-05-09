@@ -4,6 +4,7 @@ export default (app: Application) => {
 
   const middleware = app.middleware as any;
   const auth = middleware.auth();
+  const jwt = app.passport.authenticate('jwt', { session: false, successReturnToOrRedirect: null});
 
   const { controller, router } = app;
 
@@ -15,6 +16,8 @@ export default (app: Application) => {
   router.post('/create', home.create);
 
   router.get('/user', auth, user.index);
+
+  router.get('/protected', jwt, home.index);
 
   // 鉴权成功后的回调页面
   // router.get('/authCallback', home.authCallback);

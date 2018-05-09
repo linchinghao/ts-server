@@ -1,4 +1,5 @@
 import { Controller } from 'egg';
+import * as jsonwebtoken from 'jsonwebtoken';
 
 export default class HomeController extends Controller {
   public async index() {
@@ -31,8 +32,21 @@ export default class HomeController extends Controller {
   }
 
   public login() {
-    const { ctx } = this;
+    const { ctx, app } = this;
     if (ctx.method === 'GET') {
+
+      // console.log('sign', jsonwebtoken.sign({
+      //   iss: 'example jwt', // 签发者
+      //   iat: Date.now(), // 签发时间
+      //   exp: 1 * 60, // 过期时间
+      //   aud: 'example.com', // 听众
+      //   sub: 'allin', // 主体
+      // }, app.config.keys));
+
+      console.log('#sign', jsonwebtoken.sign({
+        username: 'allin',
+      }, app.config.keys));
+
       ctx.body = `
         <div>
           <form action="/login?_csrf=${ctx.csrf}" method="POST">

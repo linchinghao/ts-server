@@ -85,8 +85,8 @@ view 模板引擎
 - [x] 一键部署  
 
 1. 完善socket.io
-2. 鉴权选用JWT？或者是cookie-session?
+2. 鉴权选用JWT
 3. 基于Mongoose的数据库CURD
 4. 添加dockerfile
-5. 路由去中心化？
-6. 测试实例编写
+5. 测试实例编写
+6. 编写egg-passport index.d.ts
