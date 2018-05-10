@@ -4,7 +4,7 @@ export default (app: Application) => {
 
   const middleware = app.middleware as any;
   const auth = middleware.auth();
-  const jwt = app.passport.authenticate('jwt', { session: false, successReturnToOrRedirect: null});
+  const jwt = app.passport.authenticate('jwt', { session: false });
 
   const { controller, router } = app;
 
