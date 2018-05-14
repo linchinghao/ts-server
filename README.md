@@ -29,6 +29,8 @@ $ npm start
 
 - Node.js 8.x
 - Typescript 2.8+
+- Redis 3.x
+- Mongoodb 3.x
 
 ## `Egg`内置中间件
 `bodyParser` 对post请求的请求体进行解析  
