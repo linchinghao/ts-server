@@ -33,25 +33,31 @@ $ npm start
 - Mongoodb 3.x
 
 ## `Egg`内置中间件
-`bodyParser` 对post请求的请求体进行解析  
-`meta` 请求元数据  
-`notfound` 404支持  
-`koa-override` 支持Put/Delete等动词的请求  
-`site_file` HTTP缓存  
+| name | dec |
+|---|---|
+| bodyParser | 对post请求的请求体进行解析 |
+| meta | 请求元数据 |
+| notfound | 404支持 |
+| koa-override | 支持Put/Delete等动词的请求 |
+| site_file | HTTP缓存 |
+
 
 ## `Egg`内置插件
-onerror 统一异常处理  
-Session Session 实现  
-i18n 多语言  
-watcher 文件和文件夹监控  
-multipart 文件流式上传  
-security 安全  
-development 开发环境配置  
-logrotator 日志切分  
-schedule 定时任务  
-static 静态服务器  
-jsonp jsonp 支持  
-view 模板引擎  
+| name | dec |
+|---|---|
+| onerror | 统一异常处理 |
+| session | session实现 |
+| i18n | 国际化 |
+| watcher | 文件和文件夹监控 |
+| multipart | 文件流式上传 |
+| security | 安全 |
+| development | 开发环境配置 |
+| logrotator | 日志切分 |
+| schedule | 定时任务 | 
+| static | 静态服务器 |
+| jsonp | jsonp支持 |
+| view | 模板引擎 |
+   
 
 ## Egg与Typescript结合的问题
 1. egg-socket.io  
@@ -66,6 +72,7 @@ view 模板引擎
     typescript: true // add
   }).load();
   ```
+  或者直接写js文件
 
 2. 路由挂载中间件  
   使用TS开发，在路由加载中间件，提示`Property 'middlewareName' does not exist on type 'Middleware<Context>[]`
@@ -85,10 +92,3 @@ view 模板引擎
 - [x] 单元测试  
 - [x] 安全  
 - [x] 一键部署  
-
-1. 完善socket.io
-2. 鉴权选用JWT
-3. 基于Mongoose的数据库CURD
-4. 添加dockerfile
-5. 测试实例编写
-6. 编写egg-passport index.d.ts
