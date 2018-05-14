@@ -57,7 +57,14 @@ export default class HomeController extends Controller {
         </div>
       `;
     } else if (ctx.method === 'POST') {
+      console.log('@ctx.request.body', ctx.request.body);
       ctx.body = ctx.request.body;
+      // const { username } = ctx.request.body;
+      // const signToken = jsonwebtoken.sign({ username }, app.config.keys);
+      // ctx.cookies.set('token', signToken, {
+      //   signed: true,
+      // });
+      // ctx.body = ctx.request.body;
     }
   }
 
